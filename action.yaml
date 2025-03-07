@@ -122,6 +122,13 @@ inputs:
 runs:
   using: composite
   steps:
+    - name: Print workflow_run id
+      run: |
+        echo "Workflow Run ID: ${{ github.run_id }}"
+        echo "Workflow Run ID (alt): ${{ github.event.workflow_run.id }}"
+        echo "Workflow Event: ${{ github.event }}"
+        echo "Workflow Event Workflow Run: ${{ github.event.workflow_run }}"
+
     - name: Set up inputs
       shell: bash
       run: |
